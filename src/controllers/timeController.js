@@ -12,7 +12,7 @@ class TimeController {
   };
 
   create = async (req, res) => {
-    const { id, 
+    const { 
       nome, 
       fansbackground,
       escudo,
@@ -33,10 +33,16 @@ class TimeController {
     // const  = req.body.descricao;
     try {
       if (!nome) {
-        return res.status(400).json({ erro: "Nome é obrigatória" });
+        return res.status(400).json({ erro: "Nome é obrigatório" });
+      }
+      if (!fansbackground) {
+        return res.status(400).json({ erro: "Fansbackground é obrigatório" });
+      }
+      if (!escudo) {
+        return res.status(400).json({ erro: "Escudo é obrigatório" });
       }
 
-      const novoTime = await timeModel.create(descricao);
+      const novoTime = await timeModel.create(nome, fansbackground,escudo,anoFundacao,camisas,estadioIMages,hino,titulos,name,games,wins,draws,losses,points,goalsFavor,goalsOwn,goalsDifference );
       res.status(201).json(novoTime);
     } catch (error) {
       console.error(error);
@@ -66,7 +72,7 @@ class TimeController {
       goalsDifference } = req.body;
 
     try {
-      const timeAtualizada = await timeModel.update(
+      const timeAtualizado = await timeModel.update(
         Number(id),
         id, 
     nome, 
@@ -88,11 +94,11 @@ class TimeController {
     goalsDifference
       );
 
-      if (!timeAtualizada) {
+      if (!timeAtualizado) {
         return res.status(404).json({ erro: "time não encontrada!" });
       }
 
-      res.json(timeAtualizada);
+      res.json(timeAtualizado);
     } catch (error) {
       console.error(error);
       res.status(500).json({ erro: "Erro ao atualizar time!" });
@@ -116,4 +122,4 @@ class TimeController {
     }
   };
 }
-export default new timeController();
+export default new TimeController();
