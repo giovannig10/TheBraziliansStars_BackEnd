@@ -1,7 +1,7 @@
 {
   "name": "the20braziliansstars_web_back_end",
   "version": "1.0.0",
-  "description": "API dos conteúdos da aplicação/site do projeto realizado em sala",
+  "description": "API dos conteúdos da aplicação/site de projeto React com NodeJS realizado em sala",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
