@@ -7,11 +7,25 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Task {
-  id        Int     @id @default(autoincrement())
-  descricao String
-  concluida Boolean @default(false)
-  criadaEm  DateTime @default(now())
+model Team {
+  id              Int      @id @default(autoincrement())
+  nome            String
+  fansBackground  String
+  escudo          String
+  anoFundacao     Int?
+  camisas         String?
+  estadioImages   String?
+  hino            String?
+  titulos         String?
+  name            String?
+  games           Int?
+  wins            Int?
+  draws           Int?
+  losses          Int?
+  points          Int?
+  goalsFavor      Int?
+  goalsOwn        Int?
+  goalsDifference Int?
 
-  @@map("tasks")
+  @@map("teams")
 }
