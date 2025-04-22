@@ -1,17 +1,6 @@
-/*
-  Warnings:
-
-  - You are about to drop the `tasks` table. If the table is not empty, all the data it contains will be lost.
-
-*/
--- DropTable
-PRAGMA foreign_keys=off;
-DROP TABLE "tasks";
-PRAGMA foreign_keys=on;
-
 -- CreateTable
 CREATE TABLE "teams" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "id" SERIAL NOT NULL,
     "nome" TEXT NOT NULL,
     "fansBackground" TEXT NOT NULL,
     "escudo" TEXT NOT NULL,
@@ -28,5 +17,21 @@ CREATE TABLE "teams" (
     "points" INTEGER,
     "goalsFavor" INTEGER,
     "goalsOwn" INTEGER,
-    "goalsDifference" INTEGER
+    "goalsDifference" INTEGER,
+
+    CONSTRAINT "teams_pkey" PRIMARY KEY ("id")
 );
+
+-- CreateTable
+CREATE TABLE "users" (
+    "id" SERIAL NOT NULL,
+    "name" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "password" TEXT NOT NULL,
+    "teamFavoriteId" INTEGER,
+
+    CONSTRAINT "users_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateIndex
+CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
