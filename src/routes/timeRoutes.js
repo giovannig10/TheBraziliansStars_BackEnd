@@ -1,9 +1,9 @@
 import express from "express";
-import userController from "../controllers/userController.js";
+import matchController from "../controllers/matchController.js";
 const router = express.Router();
-router.get("/", userController.getAll);
-router.post("/", userController.create);
-router.put("/:id", userController.update);
-router.delete("/:id", userController.delete);
+router.get("/", matchController.getAll);
+router.post("/", matchController.create);
+router.put("/:id", matchController.update);
+router.delete("/:id", matchController.delete);
 export default router;
 //edede
