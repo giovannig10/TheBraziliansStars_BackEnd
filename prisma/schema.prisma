@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"                          
+  provider = "sqlite"                          
   url      = env("DATABASE_URL")
 }
 
@@ -38,4 +38,15 @@ model User {
   teamFavoriteId Int?
 
   @@map("users")
+}
+
+model Match {
+  id        Int    @id @default(autoincrement())
+  homeTeam  String
+  awayTeam  String
+  homeGoals Int
+  awayGoals Int
+  round     Int
+
+  @@map("matchs")
 }
