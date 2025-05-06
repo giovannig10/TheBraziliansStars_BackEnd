@@ -10,7 +10,7 @@ datasource db {
 model Team {
   id              Int     @id @default(autoincrement())
   nome            String
-  fansBackground  String
+  fansbackground  String
   escudo          String
   anoFundacao     Int?
   camisas         String?
