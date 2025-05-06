@@ -2,7 +2,7 @@ import prisma from "../../prisma/client.js";
 
 class UserModel {
   getAll = async () => {
-    return await prisma.users.findMany();
+    return await prisma.user.findMany();
   };
 
   create = async (
@@ -12,7 +12,7 @@ class UserModel {
     teamFavoriteId
   ) => {
     try {
-      return await prisma.users.create({
+      return await prisma.user.create({
         data: {
           name,
     email,
@@ -32,7 +32,7 @@ class UserModel {
     password,
     teamFavoriteId) => {
     try {
-      const user = await prisma.users.update({
+      const user = await prisma.user.update({
         where: { id },
         data: {
           name,
@@ -51,7 +51,7 @@ class UserModel {
 
   delete = async (id) => {
     try {
-      const userDeletado = await prisma.users.delete({
+      const userDeletado = await prisma.user.delete({
         where: { id },
       });
 
