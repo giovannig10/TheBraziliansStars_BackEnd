@@ -3,14 +3,14 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"                          
+  provider = "sqlite"                          
   url      = env("DATABASE_URL")
 }
 
 model Team {
   id              Int     @id @default(autoincrement())
   nome            String
-  fansBackground  String
+  fansbackground  String
   escudo          String
   anoFundacao     Int?
   camisas         String?

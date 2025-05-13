@@ -18,7 +18,7 @@ class TimeController {
       escudo,
       anoFundacao,
       camisas,
-      estadioIMages,
+      estadioImages,
       hino,
       titulos,
       name,
@@ -42,7 +42,7 @@ class TimeController {
         return res.status(400).json({ erro: "Escudo é obrigatório" });
       }
 
-      const novoTime = await timeModel.create(nome, fansbackground,escudo,anoFundacao,camisas,estadioIMages,hino,titulos,name,games,wins,draws,losses,points,goalsFavor,goalsOwn,goalsDifference );
+      const novoTime = await timeModel.create(nome, fansbackground,escudo,anoFundacao,camisas,estadioImages,hino,titulos,name,games,wins,draws,losses,points,goalsFavor,goalsOwn,goalsDifference );
       res.status(201).json(novoTime);
     } catch (error) {
       console.error(error);
@@ -58,7 +58,7 @@ class TimeController {
       escudo,
       anoFundacao,
       camisas,
-      estadioIMages,
+      estadioImages,
       hino,
       titulos,
       name,
@@ -80,7 +80,7 @@ class TimeController {
     escudo,
     anoFundacao,
     camisas,
-    estadioIMages,
+    estadioImages,
     hino,
     titulos,
     name,

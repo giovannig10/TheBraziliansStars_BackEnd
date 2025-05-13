@@ -1,6 +1,6 @@
 -- CreateTable
 CREATE TABLE "teams" (
-    "id" SERIAL NOT NULL,
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "nome" TEXT NOT NULL,
     "fansBackground" TEXT NOT NULL,
     "escudo" TEXT NOT NULL,
@@ -17,20 +17,16 @@ CREATE TABLE "teams" (
     "points" INTEGER,
     "goalsFavor" INTEGER,
     "goalsOwn" INTEGER,
-    "goalsDifference" INTEGER,
-
-    CONSTRAINT "teams_pkey" PRIMARY KEY ("id")
+    "goalsDifference" INTEGER
 );
 
 -- CreateTable
 CREATE TABLE "users" (
-    "id" SERIAL NOT NULL,
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
-    "teamFavoriteId" INTEGER,
-
-    CONSTRAINT "users_pkey" PRIMARY KEY ("id")
+    "teamFavoriteId" INTEGER
 );
 
 -- CreateIndex

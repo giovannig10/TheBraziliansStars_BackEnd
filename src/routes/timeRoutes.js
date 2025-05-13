@@ -1,9 +1,9 @@
 import express from "express";
-import userController from "../controllers/userController.js";
+import timeController from "../controllers/timeController.js";
 const router = express.Router();
-router.get("/", userController.getAll);
-router.post("/", userController.create);
-router.put("/:id", userController.update);
-router.delete("/:id", userController.delete);
+router.get("/", timeController.getAll);
+router.post("/", timeController.create);
+router.put("/:id", timeController.update);
+router.delete("/:id", timeController.delete);
 export default router;
 //edede
