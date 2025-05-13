@@ -5,19 +5,14 @@ class UserModel {
     return await prisma.user.findMany();
   };
 
-  create = async (
-    name,
-    email,
-    password,
-    teamFavoriteId
-  ) => {
+  create = async (name, email, password, teamFavoriteId) => {
     try {
       return await prisma.user.create({
         data: {
           name,
-    email,
-    password,
-    teamFavoriteId
+          email,
+          password,
+          teamFavoriteId,
         },
       });
     } catch (error) {
@@ -26,11 +21,7 @@ class UserModel {
     }
   };
 
-  update = async (id, 
-    name,
-    email,
-    password,
-    teamFavoriteId) => {
+  update = async (id, name, email, password, teamFavoriteId) => {
     try {
       const user = await prisma.user.update({
         where: { id },
@@ -38,7 +29,7 @@ class UserModel {
           name,
           email,
           password,
-          teamFavoriteId
+          teamFavoriteId,
         },
       });
 
