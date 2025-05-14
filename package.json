@@ -2,7 +2,7 @@
   "name": "the20braziliansstars_web_back_end",
   "version": "1.0.0",
   "description": "API dos conteúdos da aplicação/site de projeto React com NodeJS realizado em sala",
-  "main": "index.js",
+  "main": "src/server.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -27,9 +27,11 @@
   },
   "homepage": "https://github.com/giovannig10/TheBraziliansStars_BackEnd#readme",
   "dependencies": {
-    "@prisma/client": "^6.6.0",
+    "@prisma/client": "^6.5.0",
     "express": "^5.1.0",
-    "prisma": "^6.6.0"
+    "prisma": "^6.5.0",
+    "dotenv": "^16.4.7",
+    "cors": "^2.8.5"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"
