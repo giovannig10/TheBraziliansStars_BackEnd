@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "API dos conteúdos da aplicação/site de projeto React com NodeJS realizado em sala",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "build": "npx prisma generate",
+    "prisma:migrate": "npx prisma migrate dev"
   },
   "repository": {
     "type": "git",

@@ -12,7 +12,7 @@ services:
       - postgres
     environment:
       - PORT=4002
-      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/games_records
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/the_brazilian
       - JWT_SECRET=sua_chave_secreta_aqui
     volumes:
       - ./src:/src
