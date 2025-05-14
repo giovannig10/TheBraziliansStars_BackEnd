@@ -31,7 +31,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_DB=animesdb
     volumes:
-      - postgres_data:/var/lib/postgresql/data/tbs
+      - postgres_data:/var/lib/postgresql/data
 
 volumes:
   postgres_data:
