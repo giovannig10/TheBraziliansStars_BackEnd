@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: animes-api
+    container_name: the_brazilian_stars
     restart: always
     ports:
       - "4002:4002"
@@ -22,7 +22,7 @@ services:
   # Serviço PostgreSQL
   postgres:
     image: postgres:15-alpine
-    container_name: postgres-db
+    container_name: postgres-db-tbs
     restart: always
     ports:
       - "5451:5432"
@@ -33,21 +33,5 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  # Serviço PGAdmin
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: pgadmin
-    restart: always
-    ports:
-      - "5437:80"
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
-      - PGADMIN_DEFAULT_PASSWORD=admin
-    volumes:
-      - pgadmin_data:/var/lib/pgadmin
-    depends_on:
-      - postgres
-
 volumes:
   postgres_data:
-  pgadmin_data:
