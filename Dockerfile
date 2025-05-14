@@ -1,23 +1,25 @@
-# Imagem base do Node.js
-FROM node:18-alpine
+FROM node:22-alpine3.21 AS builder
 
-# Diretório de trabalho no container
 WORKDIR /app
 
-# Copiar package.json e package-lock.json
 COPY package*.json ./
 
-# Instalar as dependências
 RUN npm install
 
-# Copiar o restante do código fonte
 COPY . .
 
-# Gerar o Prisma Client para interação com o banco de dados
 RUN npx prisma generate
 
-# Expor a porta que o servidor Node.js usa
-EXPOSE 4000
+# Estágio de produção
+FROM node:20-alpine
 
-# Comando para iniciar o servidor
-CMD ["npm", "run", "dev"]
+WORKDIR /app
+
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/prisma ./prisma
+COPY --from=builder /app/src ./src
+
+EXPOSE 4002
+
+CMD ["npm", "run", "start"]
