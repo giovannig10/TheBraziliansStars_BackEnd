@@ -8,14 +8,14 @@ datasource db {
 }
 
 model Player {
-  id              Int @id @default(autoincrement())
-  name String
-  image String ?
+  id       Int     @id @default(autoincrement())
+  name     String
+  image    String?
   position String
-  number String
+  number   String
   birthday String
-  teamId String
-  height Float  
+  teamId   String
+  height   Float
 }
 
 model Team {
