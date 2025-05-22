@@ -8,7 +8,7 @@ RUN npm install
 
 COPY . .
 
-RUN npx prisma migrate reset --no-confirm
+RUN npx prisma migrate --create-only
 
 # Estágio de produção
 FROM node:22-alpine3.21
