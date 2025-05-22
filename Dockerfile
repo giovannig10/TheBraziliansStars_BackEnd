@@ -8,7 +8,7 @@ RUN npm install
 
 COPY . .
 
-RUN npx prisma reset --force
+RUN npx prisma migrate reset --force
 
 # Estágio de produção
 FROM node:22-alpine3.21
