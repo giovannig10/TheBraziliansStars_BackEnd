@@ -3,20 +3,31 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
+model Player {
+  id              Int @id @default(autoincrement())
+  name String
+  image String ?
+  position String
+  number String
+  birthday String
+  teamId String
+  height Float  
+}
+
 model Team {
-  id              Int     @id @default(autoincrement())
-  name          String
+  id              Int    @id @default(autoincrement())
+  name            String
   fansbackground  String
   shield          String
-  foundationYear     Int
+  foundationYear  Int
   uniform         String
-  stadiumImage   String
-  anthem           String
-  titles        String
+  stadiumImage    String
+  anthem          String
+  titles          String
   games           Int?
   wins            Int?
   draws           Int?
