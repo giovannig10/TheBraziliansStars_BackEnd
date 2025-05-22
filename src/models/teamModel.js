@@ -1,6 +1,6 @@
 import prisma from "../../prisma/client.js";
 
-class TimeModel {
+class TeamModel {
   getAll = async () => {
     return await prisma.team.findMany();
   };
@@ -110,4 +110,4 @@ class TimeModel {
     }
   };
 }
-export default new TimeModel();
+export default new TeamModel();

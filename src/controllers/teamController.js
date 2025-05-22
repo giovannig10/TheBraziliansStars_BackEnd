@@ -4,7 +4,7 @@ class TeamController {
   getAll = async (req, res) => {
     try {
       const teams = await teamModel.getAll();
-      res.json(times);
+      res.json(teams);
     } catch (error) {
       console.error(error);
       res.status(500).json({ erro: "Erro ao buscar times" });
@@ -120,4 +120,4 @@ class TeamController {
     }
   };
 }
-export default new TeamController ();
+export default new TeamController();
