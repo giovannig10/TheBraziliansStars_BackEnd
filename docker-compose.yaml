@@ -17,7 +17,7 @@ services:
     volumes:
       - ./src:/src
     command: >
-      sh -c "npx prisma migrate reset --force"
+      sh -c "npx prisma migrate dev && npm run start"
 
   # Serviço PostgreSQL
   postgres:
