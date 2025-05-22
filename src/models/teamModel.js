@@ -6,15 +6,14 @@ class TimeModel {
   };
 
   create = async (
-    nome, 
-    fansbackground,
-    escudo,
-    anoFundacao,
-    camisas,
-    estadioImages,
-    hino,
-    titulos,
     name,
+    fansbackground,
+    shield,
+    foundationYear,
+    uniform,
+    stadiumImage,
+    anthem,
+    titles,
     games,
     wins,
     draws,
@@ -27,15 +26,14 @@ class TimeModel {
     try {
       return await prisma.team.create({
         data: {
-          nome, 
+          name, 
           fansbackground,
-          escudo,
-          anoFundacao,
-          camisas,
-          estadioImages,
-          hino,
-          titulos,
-          name,
+          shield,
+          foundationYear,
+          uniform,
+          stadiumImage,
+          anthem,
+          titles,
           games,
           wins,
           draws,
@@ -47,21 +45,20 @@ class TimeModel {
         },
       });
     } catch (error) {
-      console.log("Error creating team", error);
+      console.log("Erro ao criar time", error);
       throw error;
     }
   };
 
   update = async (id, 
-    nome, 
-    fansbackground,
-    escudo,
-    anoFundacao,
-    camisas,
-    estadioImages,
-    hino,
-    titulos,
     name,
+    fansbackground,
+    shield,
+    foundationYear,
+    uniform,
+    stadiumImage,
+    anthem,
+    titles, 
     games,
     wins,
     draws,
@@ -74,15 +71,14 @@ class TimeModel {
       const time = await prisma.team.update({
         where: { id },
         data: {
-          nome,
-          fansbackground,
-          escudo,
-          anoFundacao,
-          camisas,
-          estadioImages,
-          hino,
-          titulos,
           name,
+          fansbackground,
+          shield,
+          foundationYear,
+          uniform,
+          stadiumImage,
+          anthem,
+          titles,
           games,
           wins,
           draws,
@@ -103,13 +99,13 @@ class TimeModel {
 
   delete = async (id) => {
     try {
-      const timeDeletada = await prisma.team.delete({
+      const deletedTeam = await prisma.team.delete({
         where: { id },
       });
 
-      return timeDeletada;
+      return deletedTeam;
     } catch (error) {
-      console.log("Erro ao deletar a time!", error);
+      console.log("Erro ao deletar time!", error);
       throw error;
     }
   };
