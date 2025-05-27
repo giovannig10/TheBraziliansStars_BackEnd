@@ -93,7 +93,7 @@ class TeamController {
       );
 
       if (!updatedTeam) {
-        return res.status(404).json({ erro: "time não encontrada!" });
+        return res.status(404).json({ erro: "Time não encontrado!" });
       }
 
       res.json(updatedTeam);

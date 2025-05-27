@@ -18,18 +18,6 @@ class playerModel {
 
 }
 
-// getAll = async() => {
-//     return await prisma.player.findMany();
-
-//     const total = await prisma.player.count();
-
-//     return {
-//         json: {
-//             message: "Jogadores cadastrados", total
-//         }
-//     }
-// };
-
 create = async (data) => {
     const player = await prisma.player.create({
         data
@@ -37,6 +25,21 @@ create = async (data) => {
 
     return player;
 }
+
+update = async (id, data) => {
+
+    try {
+      const updatedPlayer = await prisma.player.update({
+        where: { id },
+        data,
+      });
+
+      return updatedPlayer;
+    } catch (error) {
+      console.log("Error", error);
+      throw error;
+    }
+  };
 }
 
 export default new playerModel();
