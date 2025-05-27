@@ -40,6 +40,19 @@ update = async (id, data) => {
       throw error;
     }
   };
+
+  delete = async (id) => {
+    try {
+      const deletedPlayer = await prisma.player.delete({
+        where: { id },
+      });
+
+      return deletedPlayer;
+    } catch (error) {
+      console.log("Error", error);
+      throw error;
+    }
+  };
 }
 
 export default new playerModel();

@@ -81,6 +81,23 @@ class PlayerController {
       res.status(500).json({ erro: "Erro ao atualizar jogador!" });
     }
   };
+
+  delete = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+      const deletedPlayer = await playerModel.delete(Number(id));
+
+      if (!deletedPlayer) {
+        return res.status(404).json({ erro: "Jogador não encontrado" });
+      }
+
+      res.status(200).json({ message: "Jogador deletado com sucesso!" });
+    } catch (error) {
+      console.error("Erro ao deletar jogador", error);
+      res.status(500).json({ erro: "Erro ao deletar jogador" });
+    }
+  };
 }
 
 export default new PlayerController();
