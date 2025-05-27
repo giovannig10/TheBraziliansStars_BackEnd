@@ -16,9 +16,16 @@ class PlayerController {
       const { name, image, position, number, birthday, teamId, height } =
         req.body;
 
-        if (!name || !position || !number || !birthday || !teamId || !height) {
-          return res.status(400).json({ erro: "Todos os campos são obrigatorios! (exceto imagem)" });
-        }
+      if (!name || !position || !number || !birthday || !teamId || !height) {
+        return res.status(400).json({ erro: "Todos os campos são obrigatorios! (exceto imagem)" });
+      }
+
+      const validPositions = ["goleiro", "defensor", "meio-campista", "atacante"];
+      if (!validPositions.includes(position.toLowerCase())) {
+        return res.status(400).json({
+          error: "A posição deve ser goleiro, defensor, meio-campista ou atacante",
+        });
+      }
 
       const data = {
         name,
@@ -32,14 +39,14 @@ class PlayerController {
 
       const newPlayer = await playerModel.create(data);
 
-        res.status(201).json({
-            message: "Jogador criado com sucesso",
-            player: newPlayer,
-        })
+      res.status(201).json({
+        message: "Jogador criado com sucesso",
+        player: newPlayer,
+      })
 
     } catch (error) {
-        console.error("Erro ao criar jogador", error);
-        res.status(500).json({ erro: "Erro ao criar jogador" });
+      console.error("Erro ao criar jogador", error);
+      res.status(500).json({ erro: "Erro ao criar jogador" });
     };
   };
 
@@ -48,9 +55,16 @@ class PlayerController {
     const { name, image, position, number, birthday, teamId, height } = req.body;
 
     try {
-        if (!name || !position || !number || !birthday || !teamId || !height) {
-          return res.status(400).json({ erro: "Todos os campos são obrigatorios! (exceto imagem)" });
-        }
+      if (!name || !position || !number || !birthday || !teamId || !height) {
+        return res.status(400).json({ erro: "Todos os campos são obrigatorios! (exceto imagem)" });
+      }
+
+      const validPositions = ["goleiro", "defensor", "meio-campista", "atacante"];
+      if (!validPositions.includes(position.toLowerCase())) {
+        return res.status(400).json({
+          error: "A posição deve ser goleiro, defensor, meio-campista ou atacante",
+        });
+      }
 
       const data = {
         name,
