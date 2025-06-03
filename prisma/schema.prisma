@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -53,12 +53,12 @@ model User {
 }
 
 model Game {
-  id             Int    @id @default(autoincrement())
-  homeTeam       String 
-  awayTeam       String 
-  homeGoals      Int
-  awayGoals      Int
-  date           DateTime
+  id        Int      @id @default(autoincrement())
+  homeTeam  String
+  awayTeam  String
+  homeGoals Int
+  awayGoals Int
+  date      DateTime
 
   @@map("games")
 }
