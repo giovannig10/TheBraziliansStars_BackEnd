@@ -51,3 +51,14 @@ model User {
 
   @@map("users")
 }
+
+model Game {
+  id             Int    @id @default(autoincrement())
+  homeTeam       String 
+  awayTeam       String 
+  homeGoals      Int
+  awayGoals      Int
+  date           DateTime
+
+  @@map("games")
+}
