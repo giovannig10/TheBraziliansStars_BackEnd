@@ -20,6 +20,13 @@ COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/prisma ./prisma
 COPY --from=builder /app/src ./src
 
+# Criar diretório para o banco SQLite
+RUN mkdir -p /app/data
+
 EXPOSE 4002
 
-CMD ["npm", "run", "start"]
+# Script de inicialização
+COPY init.sh ./
+RUN chmod +x init.sh
+
+CMD ["./init.sh"]
