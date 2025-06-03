@@ -26,7 +26,7 @@ RUN mkdir -p /app/data
 EXPOSE 4002
 
 # Script de inicialização
-COPY init.sh ./
-RUN chmod +x init.sh
+COPY start.sh ./
+RUN chmod +x start.sh
 
-CMD ["./init.sh"]
+CMD ["./start.sh"]
