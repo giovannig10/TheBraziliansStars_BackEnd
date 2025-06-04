@@ -13,8 +13,9 @@ done
 
 echo "PostgreSQL está pronto!"
 
-echo "Executando migrações do Prisma..."
-npx prisma migrate deploy
+# Criar primeira migração para PostgreSQL (se não existir)
+echo "Criando migração inicial..."
+npx prisma migrate dev --name init || echo "Migração já existe ou falhou"
 
 # Executar seed se necessário (opcional)
 echo "Executando seed do banco de dados..."

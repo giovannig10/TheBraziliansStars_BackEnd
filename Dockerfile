@@ -1,25 +1,18 @@
-FROM node:22-alpine3.21 AS builder
-
-WORKDIR /app
-
-COPY package*.json ./
-
-RUN npm install
-
-COPY . .
-
-RUN npx prisma generate
-
-# Estágio de produção
 FROM node:22-alpine3.21
 
 WORKDIR /app
 
-# Copiar dependências e arquivos necessários
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package*.json ./
-COPY --from=builder /app/prisma ./prisma
-COPY --from=builder /app/src ./src
+# Copiar arquivos de dependências
+COPY package*.json ./
+
+# Instalar dependências
+RUN npm install
+
+# Copiar todo o código fonte
+COPY . .
+
+# Gerar cliente Prisma
+RUN npx prisma generate
 
 EXPOSE 4002
 
