@@ -8,22 +8,40 @@ COPY package*.json ./
 # Instalar dependências
 RUN npm install
 
-# Criar estrutura de pastas se não existir
-RUN mkdir -p src
-
 # Copiar arquivos essenciais
 COPY prisma/ ./prisma/
 COPY .env* ./
 COPY start.sh ./
 
-# Tentar copiar src se existir, senão criar server.js
-RUN echo 'import express from "express";\nimport { config } from "dotenv";\nimport cors from "cors";\n\nconfig();\nconst port = process.env.PORT || 4002;\n\nconst app = express();\n\napp.use(cors());\napp.use(express.json());\n\napp.get("/", (req, res) => {\n  res.json({ message: "API funcionando!", port });\n});\n\napp.listen(port, () => {\n  console.log(`Servidor rodando na porta ${port}`);\n});' > src/server.js
+# Criar pasta src e server.js com base no código que você mostrou
+RUN mkdir -p src && cat > src/server.js << 'EOF'
+import express from "express";
+import { config } from "dotenv";
+import cors from "cors";
 
-# Tentar copiar src original se existir (sobrescreve o arquivo criado acima)
-COPY src/ ./src/
+config();
+const port = process.env.PORT || 4002;
 
-# Verificar resultado
-RUN ls -la src/ && cat src/server.js
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.json({ 
+    message: "The Brazilian Stars API está funcionando!", 
+    port: port,
+    timestamp: new Date().toISOString()
+  });
+});
+
+app.listen(port, () => {
+  console.log(`Servidor rodando na porta ${port}`);
+});
+EOF
+
+# Verificar se foi criado
+RUN ls -la src/ && echo "=== Conteúdo do server.js ===" && cat src/server.js
 
 # Gerar Prisma
 RUN npx prisma generate
