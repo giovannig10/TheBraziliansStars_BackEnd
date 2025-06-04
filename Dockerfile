@@ -21,9 +21,6 @@ COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/prisma ./prisma
 COPY --from=builder /app/src ./src
 
-# Copiar arquivo principal do servidor
-COPY --from=builder /app/server.js ./
-
 EXPOSE 4002
 
 # Script de inicialização

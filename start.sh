@@ -22,4 +22,4 @@ npx prisma db seed || echo "Seed não encontrado ou falhou - continuando..."
 
 # Iniciar a aplicação
 echo "Iniciando a aplicação..."
-node server.js
+npm run start
