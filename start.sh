@@ -2,6 +2,11 @@
 
 # Script de inicialização para setup da aplicação
 
+echo "=== DEBUG: Verificando estrutura de arquivos ==="
+ls -la /app
+echo "=== Conteúdo da pasta src: ==="
+ls -la /app/src || echo "Pasta src não encontrada!"
+
 echo "Aguardando PostgreSQL ficar disponível..."
 sleep 10
 
@@ -13,14 +18,21 @@ done
 
 echo "PostgreSQL está pronto!"
 
-# Criar primeira migração para PostgreSQL (se não existir)
-echo "Criando migração inicial..."
-npx prisma migrate dev --name init || echo "Migração já existe ou falhou"
+# Usar db push em vez de migrate para evitar problemas de drift
+echo "Sincronizando banco com schema..."
+npx prisma db push --accept-data-loss
 
 # Executar seed se necessário (opcional)
 echo "Executando seed do banco de dados..."
 npx prisma db seed || echo "Seed não encontrado ou falhou - continuando..."
 
-# Iniciar a aplicação
-echo "Iniciando a aplicação..."
-npm run start
+# Verificar se o arquivo existe antes de tentar executar
+if [ -f "/app/src/server.js" ]; then
+    echo "Iniciando a aplicação..."
+    npm run start
+else
+    echo "ERRO: Arquivo /app/src/server.js não encontrado!"
+    echo "Conteúdo da pasta /app/src:"
+    ls -la /app/src
+    exit 1
+fi
