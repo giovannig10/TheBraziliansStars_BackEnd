@@ -20,7 +20,7 @@ COPY start.sh ./
 RUN echo 'import express from "express";\nimport { config } from "dotenv";\nimport cors from "cors";\n\nconfig();\nconst port = process.env.PORT || 4002;\n\nconst app = express();\n\napp.use(cors());\napp.use(express.json());\n\napp.get("/", (req, res) => {\n  res.json({ message: "API funcionando!", port });\n});\n\napp.listen(port, () => {\n  console.log(`Servidor rodando na porta ${port}`);\n});' > src/server.js
 
 # Tentar copiar src original se existir (sobrescreve o arquivo criado acima)
-COPY src/ ./src/ 2>/dev/null || echo "Pasta src original não encontrada, usando server.js padrão"
+COPY src/ ./src/
 
 # Verificar resultado
 RUN ls -la src/ && cat src/server.js
