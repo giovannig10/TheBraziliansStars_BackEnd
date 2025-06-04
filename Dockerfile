@@ -22,7 +22,7 @@ COPY --from=builder /app/prisma ./prisma
 COPY --from=builder /app/src ./src
 
 # Copiar arquivo principal do servidor
-COPY --from=builder /app/server.js ./
+COPY --from=builder /app/src/server.js ./
 
 # Criar diretório para o banco SQLite
 RUN mkdir -p /app/data
