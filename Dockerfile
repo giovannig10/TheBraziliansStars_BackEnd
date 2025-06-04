@@ -2,29 +2,27 @@ FROM node:22-alpine3.21
 
 WORKDIR /app
 
-# Debug: mostrar conteúdo atual
-RUN echo "=== Conteúdo inicial ===" && ls -la
-
-# Copiar package.json
+# Copiar package.json primeiro
 COPY package*.json ./
-RUN echo "=== Após copiar package.json ===" && ls -la
 
 # Instalar dependências
 RUN npm install
 
-# Copiar todo o código
-COPY . .
-RUN echo "=== Após copiar tudo ===" && ls -la && echo "=== Conteúdo src ===" && ls -la src/
+# Copiar arquivos específicos (evitando problemas com .dockerignore)
+COPY prisma ./prisma
+COPY src ./src
+COPY .env* ./
+COPY start.sh ./
 
-# Gerar Prisma
+# Debug: verificar se arquivos foram copiados
+RUN echo "=== Verificando cópia ===" && ls -la && echo "=== Conteúdo src ===" && ls -la src/
+
+# Gerar cliente Prisma
 RUN npx prisma generate
 
-# Verificar se server.js existe
-RUN ls -la src/ && file src/server.js || echo "server.js não encontrado!"
+# Permissão para o script
+RUN chmod +x start.sh
 
 EXPOSE 4002
-
-COPY start.sh ./
-RUN chmod +x start.sh
 
 CMD ["./start.sh"]
