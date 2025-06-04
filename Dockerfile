@@ -15,10 +15,14 @@ FROM node:22-alpine3.21
 
 WORKDIR /app
 
+# Copiar dependências e arquivos necessários
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/prisma ./prisma
 COPY --from=builder /app/src ./src
+
+# Copiar arquivo principal do servidor
+COPY --from=builder /app/server.js ./
 
 # Criar diretório para o banco SQLite
 RUN mkdir -p /app/data
