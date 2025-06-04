@@ -1,41 +1,16 @@
 services:
-  # Serviço PostgreSQL
-  postgres:
-    image: postgres:15-alpine
-    container_name: postgres-db-tbs
-    restart: always
-    ports:
-      - "5451:5432"
-    environment:
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_DB=the_brazilian
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
-
-  # Serviço da aplicação Node.js
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     container_name: the_brazilian_stars
-    restart: always
+    restart: unless-stopped
     ports:
       - "4002:4002"
-    depends_on:
-      postgres:
-        condition: service_healthy
     environment:
       - PORT=4002
-      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/the_brazilian
+      - DATABASE_URL=file:./data/database.db
       - JWT_SECRET=sua_chave_secreta_aqui
     volumes:
-      - ./src:/app/src # Para hot reload em desenvolvimento (opcional)
+      - sqlite_data:/app/data
 
 volumes:
-  postgres_data:
+  sqlite_data:
