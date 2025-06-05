@@ -1,10 +1,33 @@
 import prisma from "../../prisma/client.js";
 
 class UserModel {
-  getAll = async () => {
-    return await prisma.user.findMany();
-  };
+  async findAll() {
+    const users = await prisma.user.findMany();
 
+    return {
+      total: users.length,
+      users,
+    };
+  }
+  async findById(id) {
+    const user = await prisma.user.findUnique({
+      where: {
+        id: Number(id),
+      },
+    });
+
+    return user;
+  }
+
+  async findByEmail(email) {
+    const user = await prisma.user.findUnique({
+      where: {
+        email,
+      },
+    });
+
+    return user;
+  }
   create = async (name, email, password, teamFavoriteId) => {
     try {
       return await prisma.user.create({
@@ -48,7 +71,7 @@ class UserModel {
 
       return userDeletado;
     } catch (error) {
-      console.log("Erro ao deletar usuario!", error);
+      console.log("Erro ao deletar usuário!", error);
       throw error;
     }
   };

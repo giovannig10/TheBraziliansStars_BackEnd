@@ -1,13 +1,15 @@
-import userModel from "../models/userModel.js";
+import UserModel from "../models/userModel.js";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 class UserController {
   getAll = async (req, res) => {
     try {
-      const users = await userModel.getAll();
+      const users = await UserModel.findAll();
       res.json(users);
     } catch (error) {
       console.error(error);
-      res.status(500).json({ erro: "Erro ao buscar users" });
+      res.status(500).json({ erro: "Erro ao buscar usuários" });
     }
   };
 
@@ -24,13 +26,21 @@ class UserController {
         return res.status(400).json({ erro: "Senha é obrigatória" });
       }
 
-      const novoUser = await userModel.create(
+      const hashedPassword = await bcrypt.hash(password, 10);
+
+      const userExists = await UserModel.findByEmail(email);
+      if (userExists) {
+        return res.status(400).json({ error: "Email já está cadastrado" });
+      }
+      const newUser = await UserModel.create(
         name,
         email,
-        password,
+        hashedPassword,
         teamFavoriteId
       );
-      res.status(201).json(novoUser);
+
+
+      res.status(201).json(newUser);
     } catch (error) {
       console.error(error);
       res.status(500).json({ erro: "Erro ao criar user" });
@@ -42,7 +52,7 @@ class UserController {
     const { name, email, password, teamFavoriteId } = req.body;
 
     try {
-      const userAtualizado = await userModel.update(
+      const userAtualizado = await UserModel.update(
         Number(id),
         id,
         name,
@@ -66,10 +76,10 @@ class UserController {
     const { id } = req.params;
 
     try {
-      const sucesso = await userModel.delete(Number(id));
+      const sucesso = await UserModel.delete(Number(id));
 
       if (!sucesso) {
-        return res.status(404).json({ erro: "user não encontrada" });
+        return res.status(404).json({ erro: "user não encontrado" });
       }
 
       res.status(200).send({ message: "user deletada com sucesso!" });
@@ -78,5 +88,48 @@ class UserController {
       res.status(500).json({ error: "Erro ao excluir user!" });
     }
   };
+
+  async login(req, res) {
+    try {
+      const { email, password } = req.body;
+
+      if (!email || !password) {
+        return res
+          .status(400)
+          .json({ error: "Os campos de email e senha são obrigatórios" });
+      }
+
+      const userExists = await UserModel.findByEmail(email);
+      if (!userExists) {
+        return res.status(401).json({ error: "Credenciais inválidas" });
+      }
+
+      const isPasswordValid = await bcrypt.compare(
+        password,
+        userExists.password
+      );
+      if (!isPasswordValid) {
+        return res.status(401).json({ error: "Credenciai inválidas" });
+      }
+
+      const token = jwt.sign(
+        {
+          id: userExists.id,
+          name: userExists.name,
+          email: userExists.email,
+        },
+        process.env.JWT_SECRET,
+        {
+          expiresIn: "24h",
+        }
+      );
+
+      return res
+        .status(200)
+        .json({ message: "Login realizado com sucesso", token, userExists });
+    } catch (error) {
+      console.error("Erro ao fazer login:", error);
+    }
+  }
 }
 export default new UserController();
