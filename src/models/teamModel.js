@@ -5,15 +5,16 @@ class TeamModel {
     return await prisma.team.findMany();
   };
 
-  create = async (
+  async create(
     name,
     fansbackground,
     shield,
     foundationYear,
-    uniform,
+    uniformHome,
+    uniformAway,
+    stadiumName,
     stadiumImage,
     anthem,
-    titles,
     games,
     wins,
     draws,
@@ -22,43 +23,41 @@ class TeamModel {
     goalsFavor,
     goalsOwn,
     goalsDifference
-  ) => {
-    try {
-      return await prisma.team.create({
-        data: {
-          name, 
-          fansbackground,
-          shield,
-          foundationYear,
-          uniform,
-          stadiumImage,
-          anthem,
-          titles,
-          games,
-          wins,
-          draws,
-          losses,
-          points,
-          goalsFavor,
-          goalsOwn,
-          goalsDifference
-        },
-      });
-    } catch (error) {
-      console.log("Erro ao criar time", error);
-      throw error;
-    }
-  };
+  ) {
+    return await prisma.team.create({
+      data: {
+        name,
+        fansbackground,
+        shield,
+        foundationYear,
+        uniformHome,
+        uniformAway,
+        stadiumName,
+        stadiumImage,
+        anthem,
+        games,
+        wins,
+        draws,
+        losses,
+        points,
+        goalsFavor,
+        goalsOwn,
+        goalsDifference,
+      },
+    });
+  }
 
-  update = async (id, 
+  async update(
+    id,
     name,
     fansbackground,
     shield,
     foundationYear,
-    uniform,
+    uniformHome,
+    uniformAway,
+    stadiumName,
     stadiumImage,
     anthem,
-    titles, 
     games,
     wins,
     draws,
@@ -66,37 +65,32 @@ class TeamModel {
     points,
     goalsFavor,
     goalsOwn,
-    goalsDifference) => {
-    try {
-      const time = await prisma.team.update({
-        where: { id },
-        data: {
-          name,
-          fansbackground,
-          shield,
-          foundationYear,
-          uniform,
-          stadiumImage,
-          anthem,
-          titles,
-          games,
-          wins,
-          draws,
-          losses,
-          points,
-          goalsFavor,
-          goalsOwn,
-          goalsDifference
-        },
-      });
-
-      return time;
-    } catch (error) {
-      console.log("Error", error);
-      throw error;
-    }
+    goalsDifference
+  ) {
+    return await prisma.team.update({
+      where: { id },
+      data: {
+        name,
+        fansbackground,
+        shield,
+        foundationYear,
+        uniformHome,
+        uniformAway,
+        stadiumName,
+        stadiumImage,
+        anthem,
+        games,
+        wins,
+        draws,
+        losses,
+        points,
+        goalsFavor,
+        goalsOwn,
+        goalsDifference,
+      },
+    });
   };
-
+  
   delete = async (id) => {
     try {
       const deletedTeam = await prisma.team.delete({
