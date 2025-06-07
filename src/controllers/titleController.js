@@ -16,11 +16,7 @@ class TitleController {
       const { name, imageUrl } =
         req.body;
 
-      const data = {
-        name, imageUrl
-      };
-
-      const newtitle = await titleModel.create(data);
+      const newtitle = await titleModel.create(name, imageUrl);
 
       res.status(201).json({
         message: "ttle criado com sucesso",

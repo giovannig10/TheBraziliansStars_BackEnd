@@ -1,7 +1,7 @@
 import prisma from "../../prisma/client.js";
 
 class TitleModel {
-  async findAll() {
+  async getAll() {
     const titles = await prisma.title.findMany();
 
     return {
@@ -32,14 +32,11 @@ class TitleModel {
     }
   };
 
-  update = async (id, name, imageUrl) => {
+  update = async (id, data) => {
     try {
       const title = await prisma.title.update({
         where: { id },
-        data: {
-          name,
-          imageUrl       
-        },
+        data
       });
 
       return title;
