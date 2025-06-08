@@ -13,10 +13,10 @@ class PlayerController {
 
   create = async (req, res) => {
     try {
-      const { name, image, position, number, birthday, teamId, height } =
+      const { name, image, position, number, birthdayYear, teamId, height } =
         req.body;
 
-      if (!name || !position || !number || !birthday || !teamId || !height) {
+      if (!name || !position || !number || !birthdayYear || !teamId || !height) {
         return res.status(400).json({ erro: "Todos os campos são obrigatorios! (exceto imagem)" });
       }
 
@@ -32,7 +32,7 @@ class PlayerController {
         image,
         position,
         number,
-        birthday,
+        birthdayYear,
         teamId,
         height,
       };
@@ -52,10 +52,10 @@ class PlayerController {
 
   update = async (req, res) => {
     const { id } = req.params;
-    const { name, image, position, number, birthday, teamId, height } = req.body;
+    const { name, image, position, number, birthdayYear, teamId, height } = req.body;
 
     try {
-      if (!name || !position || !number || !birthday || !teamId || !height) {
+      if (!name || !position || !number || !birthdayYear || !teamId || !height) {
         return res.status(400).json({ erro: "Todos os campos são obrigatorios! (exceto imagem)" });
       }
 
@@ -71,7 +71,7 @@ class PlayerController {
         image,
         position,
         number,
-        birthday,
+        birthdayYear,
         teamId,
         height,
       };
