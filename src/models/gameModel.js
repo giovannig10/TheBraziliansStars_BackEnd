@@ -1,6 +1,6 @@
 import prisma from "../../prisma/client.js"
 
-class playerModel {
+class gameModel {
 
     async getAll() {
         const game = await prisma.game.findMany({
