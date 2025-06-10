@@ -17,8 +17,41 @@ const teams = [
 //Objetos de jogadores
 const players = [
     {
-
+        "name": "Marlon Freitas",
+        "image": "",
+        "position": "meio-campista",
+        "number": 8,
+        "birthdayYear": 1995,
+        "nacionalityImage": "",
+        "teamName": "Botafogo",
+        "height": 1.85
+    },
+    {
+        "name": "Arthur Cabral",
+        "image": "",
+        "position": "atacante",
+        "number": 9,
+        "birthdayYear": 1998,
+        "nacionalityImage": "",
+        "teamName": "Botafogo",
+        "height": 1.86
+    },
+    {
+        "name": "Igor Jesus",
+        "image": "",
+        "position": "atacante",
+        "number": 99,
+        "birthdayYear": 2001,
+        "nacionalityImage": "",
+        "teamName": "Botafogo",
+        "height": 1.79
+    },
+    {
+        "name": "Artur",
+        "image": "",
+        
     }
+
 ];
 
 //Objetos de usuários
