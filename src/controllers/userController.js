@@ -39,7 +39,6 @@ class UserController {
         teamFavoriteId
       );
 
-
       res.status(201).json(newUser);
     } catch (error) {
       console.error(error);
@@ -49,15 +48,16 @@ class UserController {
 
   update = async (req, res) => {
     const { id } = req.params;
-    const { name, email, password, teamFavoriteId } = req.body;
+    const { name, email, password } = req.body;
+
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     try {
       const userAtualizado = await UserModel.update(
         Number(id),
         name,
         email,
-        password,
-        teamFavoriteId
+        hashedPassword,
       );
 
       if (!userAtualizado) {
@@ -70,16 +70,13 @@ class UserController {
       res.status(500).json({ erro: "Erro ao atualizar user!" });
     }
   };
-  
+
   favoriteTeam = async (req, res) => {
     const { id } = req.params;
     const { teamFavoriteId } = req.body;
 
     try {
-      const userAtualizado = await UserModel.update(
-        Number(id),
-        teamFavoriteId
-      );
+      const userAtualizado = await UserModel.update(Number(id), teamFavoriteId);
 
       if (!userAtualizado) {
         return res.status(404).json({ erro: "user não encontrado!" });
