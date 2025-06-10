@@ -21,17 +21,8 @@ class TeamController {
     uniformAway,
     stadiumName,
     stadiumImage,
-    color1,
-    color2,
     anthem,
-    games,
-    wins,
-    draws,
-    losses,
-    points,
-    goalsFavor,
-    goalsOwn,
-    goalsDifference
+    teamBanner
   } = req.body;
 
   try {
@@ -45,14 +36,6 @@ class TeamController {
       return res.status(400).json({ erro: "Escudo é obrigatório" });
     }
 
-    if (!color1) {
-      return res.status(400).json({ erro: "Cor 1 é obrigatória" });
-    }
-
-    if (!color2) {
-      return res.status(400).json({ erro: "Cor 2 é obrigatória" });
-    }
-
     const newTeam = await teamModel.create(
       name,
       fansbackground,
@@ -63,16 +46,7 @@ class TeamController {
       stadiumName,
       stadiumImage,
       anthem,
-      color1,
-      color2,
-      games,
-      wins,
-      draws,
-      losses,
-      points,
-      goalsFavor,
-      goalsOwn,
-      goalsDifference
+      teamBanner
     );
     res.status(201).json(newTeam);
   } catch (error) {
@@ -92,17 +66,8 @@ update = async (req, res) => {
     uniformAway,
     stadiumName,
     stadiumImage,
-    color1,
-    color2,
     anthem,
-    games,
-    wins,
-    draws,
-    losses,
-    points,
-    goalsFavor,
-    goalsOwn,
-    goalsDifference
+    teamBanner
   } = req.body;
 
   try {
@@ -116,17 +81,8 @@ update = async (req, res) => {
       uniformAway,
       stadiumName,
       stadiumImage,
-      color1,
-      color2,
       anthem,
-      games,
-      wins,
-      draws,
-      losses,
-      points,
-      goalsFavor,
-      goalsOwn,
-      goalsDifference
+      teamBanner
     );
 
     if (!updatedTeam) {

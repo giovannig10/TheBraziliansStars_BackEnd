@@ -15,16 +15,7 @@ class TeamModel {
     stadiumName,
     stadiumImage,
     anthem,
-    color1,
-    color2,
-    games,
-    wins,
-    draws,
-    losses,
-    points,
-    goalsFavor,
-    goalsOwn,
-    goalsDifference
+    teamBanner
   ) {
     return await prisma.team.create({
       data: {
@@ -37,16 +28,7 @@ class TeamModel {
         stadiumName,
         stadiumImage,
         anthem,
-        color1,
-        color2,
-        games,
-        wins,
-        draws,
-        losses,
-        points,
-        goalsFavor,
-        goalsOwn,
-        goalsDifference,
+        teamBanner
       },
     });
   }
@@ -62,16 +44,7 @@ class TeamModel {
     stadiumName,
     stadiumImage,
     anthem,
-    color1,
-    color2,
-    games,
-    wins,
-    draws,
-    losses,
-    points,
-    goalsFavor,
-    goalsOwn,
-    goalsDifference
+    teamBanner
   ) {
     return await prisma.team.update({
       where: { id },
@@ -85,16 +58,7 @@ class TeamModel {
         stadiumName,
         stadiumImage,
         anthem,
-        color1,
-        color2,
-        games,
-        wins,
-        draws,
-        losses,
-        points,
-        goalsFavor,
-        goalsOwn,
-        goalsDifference,
+        teamBanner
       },
     });
   };
