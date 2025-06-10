@@ -1,30 +1,26 @@
-import prisma from "../../prisma/client.js"
+import prisma from "../../prisma/client.js";
 
 class gameModel {
+  async getAll() {
+    const games = await prisma.game.findMany({});
 
-    async getAll() {
-        const game = await prisma.game.findMany({
-        });
+    const total = await prisma.game.count();
 
-        const total = await prisma.game.count();
+    return {
+      message: `Jogos cadastrados: ${total}`,
+      games,
+    };
+  }
 
-        return {
-            message: `Jogadores cadastrados: ${total}`,
-            games,
-        };
-
-}
-
-create = async (data) => {
+  create = async (data) => {
     const game = await prisma.game.create({
-        data
+      data,
     });
 
     return game;
-}
+  };
 
-update = async (id, data) => {
-
+  update = async (id, data) => {
     try {
       const updatedGame = await prisma.game.update({
         where: { id },

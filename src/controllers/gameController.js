@@ -7,16 +7,16 @@ class gameController {
       res.status(200).json(games);
     } catch (error) {
       console.error(error);
-      res.status(500).json({ erro: "Erro ao buscar jogoes" });
+      res.status(500).json({ erro: "Erro ao buscar jogos" });
     }
   };
 
   create = async (req, res) => {
     try {
-      const { homeTeam, awayTeam, homeGoals, awayGoals } =
+      const { homeTeam, awayTeam, homeGoals, awayGoals, date } =
         req.body;
 
-      if (!homeTeam || !awayTeam || !homeGoals || !awayGoals) {
+      if (!homeTeam || !awayTeam || !date) {
         return res.status(400).json({ erro: "Todos os campos são obrigatorios!" });
       }
 
@@ -24,7 +24,8 @@ class gameController {
         homeTeam,
         awayTeam,
         homeGoals,
-        awayGoals
+        awayGoals,
+        date
       };
 
       const newGame = await gameModel.create(data);
