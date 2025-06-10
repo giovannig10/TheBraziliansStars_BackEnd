@@ -16,8 +16,8 @@ model Player {
   birthdayYear Int
   height       Float
 
-  teamId Int
-  team   Team @relation(fields: [teamId], references: [id])
+  teamName String
+  team   Team @relation(fields: [teamName], references: [name])
 
   @@map("players")
 }
@@ -30,6 +30,8 @@ model Team {
   foundationYear  Int
   uniformHome     String
   uniformAway     String
+  color1         String
+  color2         String
   stadiumName     String?
   stadiumImage    String?
   anthem          String

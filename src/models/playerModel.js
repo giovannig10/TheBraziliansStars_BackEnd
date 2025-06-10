@@ -4,9 +4,9 @@ class playerModel {
 
     async getAll() {
         const players = await prisma.player.findMany({
-            // include: {
-            //     team: true
-            // }
+            include: {
+                team: true
+            }
         });
 
         const total = await prisma.player.count();
