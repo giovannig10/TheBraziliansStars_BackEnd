@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   app:
     build: .
@@ -7,10 +9,21 @@ services:
       - "4002:4002"
     environment:
       - PORT=4002
-      - DATABASE_URL=file:./data/database.db
+      - DATABASE_URL=file:/app/data/database.db
       - JWT_SECRET=sua_chave_secreta_aqui
     volumes:
+      # Volume nomeado para persistir dados do SQLite
       - sqlite_data:/app/data
+    # Garantir que o container não seja removido automaticamente
+    deploy:
+      restart_policy:
+        condition: unless-stopped
 
 volumes:
   sqlite_data:
+    driver: local
+    # Opcional: especificar onde o volume será armazenado no host
+    # driver_opts:
+    #   type: none
+    #   o: bind
+    #   device: /caminho/para/dados/sqlite
