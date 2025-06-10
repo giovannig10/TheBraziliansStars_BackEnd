@@ -54,7 +54,6 @@ class UserController {
     try {
       const userAtualizado = await UserModel.update(
         Number(id),
-        id,
         name,
         email,
         password,
@@ -62,7 +61,28 @@ class UserController {
       );
 
       if (!userAtualizado) {
-        return res.status(404).json({ erro: "user não encontrada!" });
+        return res.status(404).json({ erro: "user não encontrado!" });
+      }
+
+      res.json(userAtualizado);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ erro: "Erro ao atualizar user!" });
+    }
+  };
+  
+  favoriteTeam = async (req, res) => {
+    const { id } = req.params;
+    const { teamFavoriteId } = req.body;
+
+    try {
+      const userAtualizado = await UserModel.update(
+        Number(id),
+        teamFavoriteId
+      );
+
+      if (!userAtualizado) {
+        return res.status(404).json({ erro: "user não encontrado!" });
       }
 
       res.json(userAtualizado);

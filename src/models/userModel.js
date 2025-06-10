@@ -62,6 +62,21 @@ class UserModel {
       throw error;
     }
   };
+  favoriteTeam = async (id, teamFavoriteId) => {
+    try {
+      const user = await prisma.user.update({
+        where: { id },
+        data: {
+          teamFavoriteId,
+        },
+      });
+
+      return user;
+    } catch (error) {
+      console.log("Error", error);
+      throw error;
+    }
+  };
 
   delete = async (id) => {
     try {

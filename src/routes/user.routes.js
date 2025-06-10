@@ -6,6 +6,7 @@ const userRouter = express.Router();
 userRouter.get("/", userController.getAll);
 userRouter.post("/", userController.create);
 userRouter.put("/:id", userController.update);
+userRouter.put("/:id", userController.favoriteTeam);
 userRouter.delete("/:id", userController.delete);
 userRouter.post("/login", userController.login);
 
