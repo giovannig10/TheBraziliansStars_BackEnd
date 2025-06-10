@@ -616,6 +616,106 @@ const players = [
         "teamName": "Santos",
         "height": 1.88
     },
+    {
+        "name": "Vitor Roque",
+        "image": "",
+        "position": "atacante",
+        "number": 8,
+        "birthdayYear": 2005,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Palmeiras",
+        "height": 1.74
+    },
+    {
+        "name": "Paulinho",
+        "image": "",
+        "position": "atacante",
+        "number": 10,
+        "birthdayYear": 2000,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Palmeiras",
+        "height": 1.75
+    },
+    {
+        "name": "José López",
+        "image": "",
+        "position": "atacante",
+        "number": 42,
+        "birthdayYear": 2000,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/argentinaFlag.png",
+        "teamName": "Palmeiras",
+        "height": 1.88
+    },
+    {
+        "name": "Estevão",
+        "image": "",   
+        "position": "meio-campista",
+        "number": 41,
+        "birthdayYear": 2007,
+        "nacionalityImage": "",
+        "teamName": "Palmeiras",
+        "height": 1.76
+    },
+    {
+        "name": "Richard Rios",
+        "image": "",
+        "position": "meio-campista",
+        "number": 8,
+        "birthdayYear": 2000,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Palmeiras",
+        "height": 1.85
+    },
+    {
+        "name": "Raphael Veiga",
+        "image": "",
+        "position": "meio-campista",
+        "number": 23,
+        "birthdayYear": 1995,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Palmeiras",
+        "height": 1.76
+    },
+    {
+        "name": "Felipe Anderson",
+        "image": "",
+        "position": "meio-campista",
+        "number": 7,
+        "birthdayYear": 1993,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Palmeiras",
+        "height": 1.75
+    },
+    {
+        "name": "Facundo Torres",
+        "image": "",
+        "position": "meio-campista",
+        "number": 17,
+        "birthdayYear": 2000,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Palmeiras",
+        "height": 1.77
+    },
+    {
+        "name": "Maurício",
+        "image": "",
+        "position": "meio-campista",
+        "number": 18,
+        "birthdayYear": 2001,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Palmeiras",
+        "height": 1.74
+    },
+    {
+        "name": "Aníbal Moreno",
+        "image": "",
+        "position": "meio-campista",
+        "number": 5,
+        "birthdayYear": 1999,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/argentinaFlag.png",
+        "teamName": "Palmeiras",
+        "height": 1.77
+    }
 
 
 
