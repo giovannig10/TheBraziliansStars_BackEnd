@@ -12,6 +12,7 @@ model Player {
   name         String
   image        String?
   position     String
+  nationalityImage String
   number       Int
   birthdayYear Int
   height       Float

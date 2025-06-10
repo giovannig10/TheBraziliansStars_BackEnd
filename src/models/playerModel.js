@@ -5,7 +5,11 @@ class playerModel {
     async getAll() {
         const players = await prisma.player.findMany({
             include: {
-                team: true
+                team: {
+                  select: {
+                    name: true
+                  }
+                }
             }
         });
 
