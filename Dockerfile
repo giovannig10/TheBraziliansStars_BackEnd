@@ -9,13 +9,13 @@ RUN npm install
 # Copiar TODOS os arquivos do projeto
 COPY . .
 
-# Criar diretório para SQLite
-RUN mkdir -p data
-
 # Gerar cliente Prisma
 RUN npx prisma generate
 
+# Criar diretório para SQLite e definir permissões
+RUN mkdir -p /app/data && chmod 755 /app/data
+
 EXPOSE 4002
 
-# Comando direto sem script complexo
-CMD ["sh", "-c", "npx prisma db push && npm run start"]
+# Comando simplificado - apenas push se o banco não existir
+CMD ["sh", "-c", "if [ ! -f /app/data/database.db ]; then npx prisma db push; fi && npm run start"]
