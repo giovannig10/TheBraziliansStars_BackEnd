@@ -715,7 +715,308 @@ const players = [
         "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/argentinaFlag.png",
         "teamName": "Palmeiras",
         "height": 1.77
+    },
+    {
+        "name": "Lucas Evangelista",
+        "image": "",
+        "position": "meio-campista",
+        "number": 30,
+        "birthdayYear": 1995,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Palmeiras",
+        "height": 1.81
+    },
+    {
+        "name": "Gustavo Gómez",
+        "image": "",
+        "position": "defensor",
+        "number": 15,
+        "birthdayYear": 1993,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/paraguaiFlag.png",
+        "teamName": "Palmeiras",
+        "height": 1.85
+    },
+    {
+        "name": "Joaquín Piquerez",
+        "image": "",
+        "position": "defensor",
+        "number": 22,
+        "birthdayYear": 1998,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/uruguaiFlag.png",
+        "teamName": "Palmeiras",
+        "height": 1.83
+    },
+    {
+        "name": "Murilo",
+        "image": "",
+        "position": "defensor",
+        "number": 26,
+        "birthdayYear": 1997,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Palmeiras",
+        "height": 1.88
+    },
+    {
+        "name": "Micael",
+        "image": "",
+        "position": "defensor",
+        "number": 13,
+        "birthdayYear": 2000,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Palmeiras",
+        "height": 1.83
+    },
+    {
+        "name": "Marcos Rocha",
+        "image": "",
+        "position": "defensor",
+        "number": 2,
+        "birthdayYear": 1988,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Palmeiras",
+        "height": 1.76
+    },
+    {
+        "name": "Agustín Giay",
+        "image": "",
+        "position": "defensor",
+        "number": 4,
+        "birthdayYear": 2004,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/argentinaFlag.png",
+        "teamName": "Palmeiras",
+        "height": 1.80
+    },
+    {
+        "name": "Mayke",
+        "image": "",
+        "position": "defensor",
+        "number": 12,
+        "birthdayYear": 1992,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Palmeiras",
+        "height": 1.78
+    },
+    {
+        "name": "Weverton",
+        "image": "",
+        "position": "goleiro",
+        "number": 21,
+        "birthdayYear": 1987,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Palmeiras",
+        "height": 1.89
+    },
+    {
+        "name": "Marcelo Lomba",
+        "image": "",
+        "position": "defensor",
+        "number": 14,
+        "birthdayYear": 1986,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Palmeiras",
+        "height": 1.87
+    },
+    {
+        "name": "Gabriel Barbosa",
+        "image": "",
+        "position": "atacante",
+        "number": 9,
+        "birthdayYear": 1996,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Cruzeiro",
+        "height": 1.78
+    },
+    {
+        "name": "Kaio Jorge",
+        "image": "",
+        "position": "atacante",
+        "number": 19,
+        "birthdayYear": 2002,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Cruzeiro",
+        "height": 1.82
+    },
+    {
+        "name": "Yannick Bolasie",
+        "image": "",
+        "position": "atacante",
+        "number": 11,
+        "birthdayYear": 1989,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Cruzeiro",
+        "height": 1.85
+    },
+    {
+        "name": "Lautaro Díaz",
+        "image": "",
+        "position": "atacante",
+        "number": 26,
+        "birthdayYear": 1998,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/argentinaFlag.png",
+        "teamName": "Cruzeiro",
+        "height": 1.81
+    },
+    {
+        "name": "Matheus Pereira",
+        "image": "",
+        "position": "meio-campista",
+        "number": 10,
+        "birthdayYear": 1996,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Cruzeiro",
+        "height": 1.75
+    },
+    {
+        "name": "Marquinhos",
+        "image": "",
+        "position": "meio-campista",
+        "number": 7,
+        "birthdayYear": 2003,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Cruzeiro",
+        "height": 1.75
+    },
+    {
+        "name": "Matheus Henrique",
+        "image": "",
+        "position": "meio-campista",
+        "number": 8,
+        "birthdayYear": 1997,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Cruzeiro",
+        "height": 1.75
+    },
+    {
+        "name": "Eduardo",
+        "image": "",
+        "position": "meio-campista",
+        "number": 21,
+        "birthdayYear": 1989,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Cruzeiro",
+        "height": 1.84
+    },
+    {
+        "name": "Lucas Romero",
+        "image": "",
+        "position": "meio-campista",
+        "number": 29,
+        "birthdayYear": 1994,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/argentinaFlag.png",
+        "teamName": "Cruzeiro",
+        "height": 1.67
+    },
+    {
+        "name": "Christian",
+        "image": "",
+        "position": "meio-campista",
+        "number": 88,
+        "birthdayYear": 2000,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Cruzeiro",
+        "height": 1.78
+    },
+    {
+        "name": "Lucas Silva",
+        "image": "",
+        "position": "meio-campista",
+        "number": 16,
+        "birthdayYear": 1993,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Cruzeiro",
+        "height": 1.82
+    },
+    {
+        "name": "Walace",
+        "image": "",
+        "position": "meio-campista",
+        "number": 5,
+        "birthdayYear": 1995,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Cruzeiro",
+        "height": 1.88
+    },
+    {
+        "name": "Fabrício Bruno",
+        "image": "",
+        "position": "defensor",
+        "number": 15,
+        "birthdayYear": 1996,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Cruzeiro",
+        "height": 1.92
+    },
+    {
+        "name": "Fagner",
+        "image": "",
+        "position": "defensor",
+        "number": 23,
+        "birthdayYear": 1989,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Cruzeiro",
+        "height": 1.68
+    },
+    {
+        "name": "William",
+        "image": "",
+        "position": "defensor",
+        "number": 12,
+        "birthdayYear": 1995,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Cruzeiro",
+        "height": 1.76
+    },
+    {
+        "name": "Lucas Villalba",
+        "image": "",
+        "position": "defensor",
+        "number": 25,
+        "birthdayYear": 1994,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/argentinaFlag.png",
+        "teamName": "Cruzeiro",
+        "height": 1.77
+    },
+    {
+        "name": "Mateo Gamarra",
+        "image": "",
+        "position": "defensor",
+        "number": 14,
+        "birthdayYear": 2000,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/paraguaiFlag.png",
+        "teamName": "Cruzeiro",
+        "height": 1.85
+    },
+    {
+        "name": "Kaiki",
+        "image": "",
+        "position": "defensor",
+        "number": 6,
+        "birthdayYear": 2003,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Cruzeiro",
+        "height": 1.72
+    },
+    {
+        "name": "Cássio",
+        "image": "",
+        "position": "goleiro",
+        "number": 1,
+        "birthdayYear": 1987,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Cruzeiro",
+        "height": 1.95
+    },
+    {
+        "name": "Léo Aragão",
+        "image": "",
+        "position": "goleiro",
+        "number": 41,
+        "birthdayYear": 2002,
+        "nacionalityImage": "https://github.com/giovannig10/The20BraziliansStars_WEB/blob/main/public/images/nacionality/brasilFlag.png",
+        "teamName": "Cruzeiro",
+        "height": 1.92
     }
+
 
 
 
