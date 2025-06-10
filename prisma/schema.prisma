@@ -31,8 +31,7 @@ model Team {
   foundationYear  Int
   uniformHome     String
   uniformAway     String
-  color1         String
-  color2         String
+  teamBanner      String
   stadiumName     String?
   stadiumImage    String?
   anthem          String
@@ -44,6 +43,7 @@ model Team {
   goalsFavor      Int?
   goalsOwn        Int?
   goalsDifference Int?
+  retrospect String?
 
   players Player[]
   users   User[]
