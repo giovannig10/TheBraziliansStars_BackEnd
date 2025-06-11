@@ -14,15 +14,13 @@ class TeamController {
  create = async (req, res) => {
   const { 
     name,
-    nickname,
+    nickName,
     history,
     fansbackground,
     shield,
     foundationYear,
     uniformHome,
     uniformAway,
-    stadiumName,
-    stadiumImage,
     anthem,
     teamBanner
   } = req.body;
@@ -40,15 +38,13 @@ class TeamController {
 
     const newTeam = await teamModel.create(
       name,
-      nickname,
+      nickName,
       history,
       fansbackground,
       shield,
       foundationYear,
       uniformHome,
       uniformAway,
-      stadiumName,
-      stadiumImage,
       anthem,
       teamBanner
     );
@@ -65,13 +61,11 @@ update = async (req, res) => {
     name,
     fansbackground,
     shield,
-    nickname,
+    nickName,
     history,
     foundationYear,
     uniformHome,
     uniformAway,
-    stadiumName,
-    stadiumImage,
     anthem,
     teamBanner
   } = req.body;
@@ -80,15 +74,13 @@ update = async (req, res) => {
     const updatedTeam = await teamModel.update(
       Number(id),
       name,
-      nickname,
+      nickName,
       history,
       fansbackground,
       shield,
       foundationYear,
       uniformHome,
       uniformAway,
-      stadiumName,
-      stadiumImage,
       anthem,
       teamBanner
     );
