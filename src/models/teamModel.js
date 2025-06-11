@@ -15,7 +15,8 @@ class TeamModel {
     uniformHome,
     uniformAway,
     anthem,
-    teamBanner
+    teamBanner,
+    titles
   ) {
     return await prisma.team.create({
       data: {
@@ -28,7 +29,8 @@ class TeamModel {
         uniformHome,
         uniformAway,
         anthem,
-        teamBanner
+        teamBanner,
+        titles
       },
     });
   }
@@ -44,7 +46,8 @@ class TeamModel {
     uniformHome,
     uniformAway,
     anthem,
-    teamBanner
+    teamBanner,
+    titles
   ) {
     return await prisma.team.update({
       where: { id },
@@ -58,7 +61,8 @@ class TeamModel {
         uniformHome,
         uniformAway,
         anthem,
-        teamBanner
+        teamBanner,
+        titles
       },
     });
   };

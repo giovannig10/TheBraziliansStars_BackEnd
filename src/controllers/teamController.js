@@ -22,7 +22,8 @@ class TeamController {
     uniformHome,
     uniformAway,
     anthem,
-    teamBanner
+    teamBanner,
+    titles
   } = req.body;
 
   try {
@@ -46,7 +47,8 @@ class TeamController {
       uniformHome,
       uniformAway,
       anthem,
-      teamBanner
+      teamBanner,
+      titles
     );
     res.status(201).json(newTeam);
   } catch (error) {
@@ -67,7 +69,8 @@ update = async (req, res) => {
     uniformHome,
     uniformAway,
     anthem,
-    teamBanner
+    teamBanner,
+    titles
   } = req.body;
 
   try {
@@ -82,7 +85,8 @@ update = async (req, res) => {
       uniformHome,
       uniformAway,
       anthem,
-      teamBanner
+      teamBanner,
+      titles
     );
 
     if (!updatedTeam) {

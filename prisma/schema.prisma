@@ -8,17 +8,17 @@ datasource db {
 }
 
 model Player {
-  id           Int     @id @default(autoincrement())
-  name         String
-  image        String?
-  position     String
+  id               Int     @id @default(autoincrement())
+  name             String
+  image            String?
+  position         String
   nationalityImage String
-  number       Int
-  birthdayYear Int
-  height       Float
+  number           Int
+  birthdayYear     Int
+  height           Float
 
   teamName String
-  team   Team @relation(fields: [teamName], references: [name])
+  team     Team   @relation(fields: [teamName], references: [name])
 
   @@map("players")
 }
@@ -26,9 +26,9 @@ model Player {
 model Team {
   id              Int     @id @default(autoincrement())
   name            String  @unique
-  nickName       String
+  nickName        String
   history         String
-  history2    String?
+  history2        String?
   fansbackground  String
   shield          String
   foundationYear  Int
@@ -36,12 +36,13 @@ model Team {
   uniformAway     String
   teamBanner      String
   stadiumName     String?
-  stadiumImage1    String?
+  stadiumImage1   String?
   stadiumImage2   String?
   stadiumImage3   String?
   stadiumLocality String?
   stadiumCapacity String?
   anthem          String
+  titles          String?
   games           Int?
   wins            Int?
   draws           Int?
@@ -50,7 +51,7 @@ model Team {
   goalsFavor      Int?
   goalsOwn        Int?
   goalsDifference Int?
-  retrospect String?
+  retrospect      String?
 
   players Player[]
   users   User[]
@@ -79,7 +80,7 @@ model User {
 }
 
 model Game {
-  id        Int      @id @default(autoincrement())
+  id        Int    @id @default(autoincrement())
   homeTeam  String
   awayTeam  String
   homeGoals Int
