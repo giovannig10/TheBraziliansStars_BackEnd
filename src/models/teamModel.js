@@ -7,6 +7,8 @@ class TeamModel {
 
   async create(
     name,
+    nickname,
+    history,
     fansbackground,
     shield,
     foundationYear,
@@ -20,6 +22,8 @@ class TeamModel {
     return await prisma.team.create({
       data: {
         name,
+        nickname,
+        history,
         fansbackground,
         shield,
         foundationYear,
@@ -36,6 +40,8 @@ class TeamModel {
   async update(
     id,
     name,
+    nickname,
+    history,
     fansbackground,
     shield,
     foundationYear,
@@ -50,6 +56,8 @@ class TeamModel {
       where: { id },
       data: {
         name,
+        nickname,
+        history,
         fansbackground,
         shield,
         foundationYear,
