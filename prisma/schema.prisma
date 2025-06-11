@@ -26,6 +26,9 @@ model Player {
 model Team {
   id              Int     @id @default(autoincrement())
   name            String  @unique
+  nickname       String
+  history         String
+  history2    String?
   fansbackground  String
   shield          String
   foundationYear  Int
@@ -33,7 +36,11 @@ model Team {
   uniformAway     String
   teamBanner      String
   stadiumName     String?
-  stadiumImage    String?
+  stadiumImage1    String?
+  stadiumImage2   String?
+  stadiumImage3   String?
+  stadiumLocality String?
+  stadiumCapacity String?
   anthem          String
   games           Int?
   wins            Int?

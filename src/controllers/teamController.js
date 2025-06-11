@@ -14,6 +14,8 @@ class TeamController {
  create = async (req, res) => {
   const { 
     name,
+    nickname,
+    history,
     fansbackground,
     shield,
     foundationYear,
@@ -38,6 +40,8 @@ class TeamController {
 
     const newTeam = await teamModel.create(
       name,
+      nickname,
+      history,
       fansbackground,
       shield,
       foundationYear,
@@ -61,6 +65,8 @@ update = async (req, res) => {
     name,
     fansbackground,
     shield,
+    nickname,
+    history,
     foundationYear,
     uniformHome,
     uniformAway,
@@ -74,6 +80,8 @@ update = async (req, res) => {
     const updatedTeam = await teamModel.update(
       Number(id),
       name,
+      nickname,
+      history,
       fansbackground,
       shield,
       foundationYear,
