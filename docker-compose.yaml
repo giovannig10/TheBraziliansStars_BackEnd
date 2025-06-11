@@ -3,27 +3,18 @@ version: "3.8"
 services:
   app:
     build: .
-    container_name: the_brazilian_stars
+    container_name: the_brazilian_stars_v2
     restart: unless-stopped
     ports:
       - "4002:4002"
     environment:
       - PORT=4002
       - DATABASE_URL=file:/app/data/database.db
-      - JWT_SECRET=sua_chave_secreta_aqui
+      - JWT_SECRET=sua_chave_secreta_brazilian_stars_2025
     volumes:
       # Volume nomeado para persistir dados do SQLite
-      - sqlite_data:/app/data
-    # Garantir que o container não seja removido automaticamente
-    deploy:
-      restart_policy:
-        condition: unless-stopped
+      - brazilian_stars_data:/app/data
 
 volumes:
-  sqlite_data:
+  brazilian_stars_data:
     driver: local
-    # Opcional: especificar onde o volume será armazenado no host
-    # driver_opts:
-    #   type: none
-    #   o: bind
-    #   device: /caminho/para/dados/sqlite

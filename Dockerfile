@@ -17,5 +17,5 @@ RUN mkdir -p /app/data && chmod 755 /app/data
 
 EXPOSE 4002
 
-# Comando simplificado - apenas push se o banco não existir
-CMD ["sh", "-c", "if [ ! -f /app/data/database.db ]; then npx prisma db push; fi && npm run start"]
+# Forçar recriação do banco para resolver problemas de schema
+CMD ["sh", "-c", "rm -f /app/data/database.db && npx prisma db push && ([ -f prisma/seed.js ] && node prisma/seed.js || echo 'Seed não encontrado') && npm run start"]
